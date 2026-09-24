@@ -1,0 +1,9 @@
+.profile-document{display:block;width:min(100%,420px);max-height:320px;object-fit:contain;border:1px solid #dce5de;border-radius:6px;background:#eef3ee}.table-wrap>.primary{margin:16px}.table-wrap small{display:block;color:#7b8983;margin-top:4px}.table-wrap td{vertical-align:middle}.view-button{display:inline-flex;align-items:center;gap:5px}
+.teaching-options{min-width:0;margin:0;padding:0;border:0}
+.teaching-options legend{margin-bottom:8px;font-size:13px;font-weight:700;color:#19332f}
+.teaching-options small{display:block;margin-bottom:12px;color:#75837d}
+.teaching-choices{display:flex;flex-wrap:wrap;gap:8px}
+.teaching-choice{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dfe8e2;border-radius:6px;background:#fff;color:#19332f;font-size:13px;cursor:pointer}
+.teaching-choice.selected{border-color:#81a52a;background:#edf6d9}
+.teaching-choice input{width:15px;height:15px;margin:0;accent-color:#527b1c}
+.teaching-choice:focus-within{outline:2px solid #81a52a;outline-offset:2px}

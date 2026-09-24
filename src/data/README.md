@@ -1,0 +1,1 @@
+Danh sách tỉnh/thành phố và xã/phường/đặc khu từ https://provinces.open-api.vn/api/v2/?depth=2, tải ngày 15/09/2026. Dữ liệu được đóng gói cùng web để chọn địa chỉ không phụ thuộc API bên ngoài. Cấu trúc hai cấp theo dữ liệu v2 sau sáp nhập tháng 07/2025.
