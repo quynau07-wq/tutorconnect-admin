@@ -78,8 +78,14 @@ export const deleteStaff = (uid: string) =>
   request<void>(`/api/admin/staff/${uid}`, {method: 'DELETE'});
 export const updateStaff = (uid: string, payload: ProfileUpdate & {disabled?: boolean}) =>
   request<StaffAdmin>(`/api/admin/staff/${uid}`, {method: 'PATCH', body: JSON.stringify(payload)});
-export const getRevenue = (from: string, to: string) =>
-  request<{total: number; count: number}>(`/api/admin/revenue?from=${from}&to=${to}`);
+export type RevenueReport = {
+  from: string; to: string; timezone: string; bucket: 'hour' | 'day' | 'month';
+  total: number; count: number; average: number;
+  series: {key: string; total: number; count: number}[];
+  tutors: {id: string; name: string; total: number; count: number}[];
+};
+export const getRevenue = (period: string, from = '', to = '') =>
+  request<RevenueReport>(`/api/admin/revenue?${new URLSearchParams({period, from, to})}`);
 
 export const updateUserProfile = (role: 'user' | 'tutor', uid: string, payload: ProfileUpdate) => request<ManagedUser>(`/api/admin/users/${role}/${uid}`, {method: 'PATCH', body: JSON.stringify(payload)});
 export type JobPost = {id: string; userId: string; subject: string; grade: string; status: 'OPEN' | 'CLOSED' | 'MATCHED'; goal: string; location: string; budget: number; applicantCount: number; recommendationCount: number; schedule: {dayOfWeek: string; startTime: string; endTime: string}[]};
