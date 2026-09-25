@@ -97,6 +97,6 @@ export const getRevenue = (period: string, from = '', to = '') =>
   request<RevenueReport>(`/api/admin/revenue?${new URLSearchParams({period, from, to})}`);
 
 export const updateUserProfile = (role: 'user' | 'tutor', uid: string, payload: ProfileUpdate) => request<ManagedUser>(`/api/admin/users/${role}/${uid}`, {method: 'PATCH', body: JSON.stringify(payload)});
-export type JobPost = {id: string; userId: string; subject: string; grade: string; status: 'OPEN' | 'CLOSED' | 'MATCHED'; goal: string; location: string; budget: number; applicantCount: number; recommendationCount: number; schedule: {dayOfWeek: string; startTime: string; endTime: string}[]};
+export type JobPost = {id: string; packageId?: string; packageLabel?: string; userId: string; subject: string; grade: string; status: 'OPEN' | 'CLOSED' | 'MATCHED'; goal: string; location: string; budget: number; applicantCount: number; recommendationCount: number; schedule: {dayOfWeek: string; startTime: string; endTime: string}[]};
 export const listJobPosts = () => request<JobPost[]>('/api/learning/admin/jobs');
 export const updateJobPost = (id: string, status: 'OPEN' | 'CLOSED') => request(`/api/learning/admin/jobs/${id}`, {method: 'PATCH', body: JSON.stringify({status})});
