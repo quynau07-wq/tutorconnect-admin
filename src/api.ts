@@ -31,6 +31,15 @@ export const createUser = (role: 'user' | 'tutor', payload: CreateUserPayload) =
 
 const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
+export class ApiError extends Error {
+  status: number;
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+  }
+}
+
 export const request = async <T>(path: string, options?: RequestInit): Promise<T> => {
   const user = auth.currentUser;
   if (!user) throw new Error('Bạn chưa đăng nhập.');
@@ -46,7 +55,7 @@ export const request = async <T>(path: string, options?: RequestInit): Promise<T
 
   if (!response.ok) {
     const body = await response.json().catch(() => null);
-    throw new Error(body?.message || 'API request failed');
+    throw new ApiError(body?.message || 'API request failed', response.status);
   }
 
   if (response.status === 204) return undefined as T;

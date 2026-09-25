@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" role="img" aria-label="TutorConnect">
+  <rect width="108" height="108" rx="24" fill="#103E3A"/>
+  <circle cx="39" cy="34" r="6" fill="#F5F9F0"/>
+  <circle cx="69" cy="34" r="6" fill="#C7EB77"/>
+  <path d="M28 45 C37 42 46 46 52 52 L52 77 C45 70 37 67 28 69 Z" fill="#F5F9F0"/>
+  <path d="M80 45 C71 42 62 46 56 52 L56 77 C63 70 71 67 80 69 Z" fill="#C7EB77"/>
+</svg>
